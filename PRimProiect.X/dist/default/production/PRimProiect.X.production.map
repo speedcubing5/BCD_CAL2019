@@ -30,6 +30,7 @@ Command:
   build/default/production/mcal_timers.o \
   build/default/production/sys_schedule.o \
   build/default/production/sys_tasks.o \
+  build/default/production/light_sig.o \
   --defsym=__MPLAB_BUILD=1 \
   -Tp33FJ128MC804.gld.00 \
   --stack=16 \
@@ -103,22 +104,22 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x448           0x66c  (1644)
 .const                       0x648                 0x6             0x9  (9)
-.text                        0x64e              0x106a          0x189f  (6303)
-.dinit                      0x16b8                0x20            0x30  (48)
-.init.delay32               0x16d8                0x1c            0x2a  (42)
-.text                       0x16f4                0x2e            0x45  (69)
+.text                        0x64e              0x10ae          0x1905  (6405)
+.dinit                      0x16fc                0x26            0x39  (57)
+.init.delay32               0x1722                0x1c            0x2a  (42)
+.text                       0x173e                0x2e            0x45  (69)
 
-                 Total "program" memory used (bytes):         0x1fb3  (8115) 6%
+                 Total "program" memory used (bytes):         0x2022  (8226) 6%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x4000]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.nbss                        0x800                   0            0x1a  (26)
-.bss                         0x81a                   0            0x20  (32)
+.nbss                        0x800                   0            0x1c  (28)
+.bss                         0x81c                   0            0x20  (32)
 
-                 Total "data" memory used (bytes):           0x3a  (58) <1%
+                 Total "data" memory used (bytes):           0x3c  (60) <1%
 
 
 Dynamic Memory Usage
@@ -126,9 +127,9 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x83a                              0x3fc6  (16326)
+stack                        0x83c                              0x3fc4  (16324)
 
-                 Maximum dynamic memory (bytes):         0x3fc6  (16326)
+                 Maximum dynamic memory (bytes):         0x3fc4  (16324)
 
 Note: Project is using a large data memory model when small data memory model is sufficient.
 
@@ -148,14 +149,16 @@ External Symbols in Data Memory (by address):
                     0x0814                  _u8FlagTask_500ms
                     0x0816                  _u8FlagTask_1000ms
                     0x0818                  _a
-                    0x081a                  _au8RxBuff
+                    0x081a                  _i
+                    0x081c                  _au8RxBuff
 
 External Symbols in Data Memory (by name):
 
                     0x0818                  _a
-                    0x081a                  _au8RxBuff
+                    0x081c                  _au8RxBuff
                     0x0804                  _bRF_IRQ
                     0x0802                  _eRF_OpMode
+                    0x081a                  _i
                     0x0808                  _u16Tim2IntCnt
                     0x080a                  _u16Tim3IntCnt
                     0x0816                  _u8FlagTask_1000ms
@@ -185,8 +188,8 @@ External Symbols in Program Memory (by address):
                   0x00032a                  ___addsf3
                   0x0003e4                  ___divsf3
                   0x000468                  ___lesf2
-                  0x000468                  ___ltsf2
                   0x000468                  ___eqsf2
+                  0x000468                  ___ltsf2
                   0x00046c                  ___fixunssfsi
                   0x0004a2                  ___floatunsisf
                   0x0004a6                  __fpack
@@ -295,35 +298,36 @@ External Symbols in Program Memory (by address):
                   0x001556                  _INT2_vInit
                   0x001582                  _ADC_vInit
                   0x00159c                  _ADC_u16Read
-                  0x0015da                  _TASK_Inits
-                  0x0015ec                  _TASK_1ms
-                  0x0015f2                  _TASK_5ms
-                  0x0015f8                  _TASK_10ms
-                  0x0015fe                  _TASK_100ms
-                  0x001604                  _TASK_500ms
-                  0x00160a                  _TASK_1000ms
-                  0x001626                  _COM_vInit
-                  0x00162c                  _COM_vSendMessage
-                  0x001638                  _COM_vStartListening
-                  0x001640                  _COM_vProcessMessage
-                  0x001648                  _COM_vProcessFIFO
-                  0x001670                  _QEI_vInit
-                  0x0016a6                  _QEI_u16getCount
-                  0x0016ae                  _QEI_vResetCount
-                  0x0016d8                  ___delay32
-                  0x0016f4                  _MCAL_vInit
-                  0x00170a                  _OSC_vInit
-                  0x00171a                  _main
+                  0x0015da                  _COM_vInit
+                  0x0015e0                  _COM_vSendMessage
+                  0x0015ec                  _COM_vStartListening
+                  0x0015f4                  _COM_vProcessMessage
+                  0x0015fc                  _COM_vProcessFIFO
+                  0x001624                  _QEI_vInit
+                  0x00165a                  _QEI_u16getCount
+                  0x001662                  _QEI_vResetCount
+                  0x00166c                  _TASK_Inits
+                  0x00167e                  _TASK_1ms
+                  0x001684                  _TASK_5ms
+                  0x00168a                  _TASK_10ms
+                  0x001690                  _TASK_100ms
+                  0x0016a8                  _TASK_500ms
+                  0x0016ae                  _TASK_1000ms
+                  0x0016b4                  _vDoHandleLightSig
+                  0x001722                  ___delay32
+                  0x00173e                  _MCAL_vInit
+                  0x001754                  _OSC_vInit
+                  0x001764                  _main
 
 External Symbols in Program Memory (by name):
 
                   0x00159c                  _ADC_u16Read
                   0x001582                  _ADC_vInit
-                  0x001626                  _COM_vInit
-                  0x001648                  _COM_vProcessFIFO
-                  0x001640                  _COM_vProcessMessage
-                  0x00162c                  _COM_vSendMessage
-                  0x001638                  _COM_vStartListening
+                  0x0015da                  _COM_vInit
+                  0x0015fc                  _COM_vProcessFIFO
+                  0x0015f4                  _COM_vProcessMessage
+                  0x0015e0                  _COM_vSendMessage
+                  0x0015ec                  _COM_vStartListening
                   0x000d3e                  _GPIO_u16ReadPort
                   0x000c86                  _GPIO_u8ReadPortPin
                   0x000a64                  _GPIO_u8SetPortPin
@@ -333,8 +337,8 @@ External Symbols in Program Memory (by name):
                   0x001530                  _INT1_vInit
                   0x001556                  _INT2_vInit
                   0x0014fc                  _INT_vInit
-                  0x0016f4                  _MCAL_vInit
-                  0x00170a                  _OSC_vInit
+                  0x00173e                  _MCAL_vInit
+                  0x001754                  _OSC_vInit
                   0x000d68                  _PWM1_vInit
                   0x000e1e                  _PWM1_vSetDuty
                   0x000f7c                  _PWM1_vSetDutyPeriod
@@ -343,9 +347,9 @@ External Symbols in Program Memory (by name):
                   0x000f12                  _PWM2_vSetDuty
                   0x000fa4                  _PWM2_vSetDutyPeriod
                   0x000e02                  _PWM2_vSetPeriod
-                  0x0016a6                  _QEI_u16getCount
-                  0x001670                  _QEI_vInit
-                  0x0016ae                  _QEI_vResetCount
+                  0x00165a                  _QEI_u16getCount
+                  0x001624                  _QEI_vInit
+                  0x001662                  _QEI_vResetCount
                   0x0008d0                  _RF_u8Get_FifoStatus
                   0x0008c2                  _RF_u8Get_ObsTx
                   0x0008b4                  _RF_u8Get_Status
@@ -386,13 +390,13 @@ External Symbols in Program Memory (by name):
                   0x00118a                  _SPI_RF_u8WriteReg_5Bytes
                   0x001040                  _SPI_RF_vDisable
                   0x000fe4                  _SPI_RF_vInit
-                  0x00160a                  _TASK_1000ms
-                  0x0015fe                  _TASK_100ms
-                  0x0015f8                  _TASK_10ms
-                  0x0015ec                  _TASK_1ms
-                  0x001604                  _TASK_500ms
-                  0x0015f2                  _TASK_5ms
-                  0x0015da                  _TASK_Inits
+                  0x0016ae                  _TASK_1000ms
+                  0x001690                  _TASK_100ms
+                  0x00168a                  _TASK_10ms
+                  0x00167e                  _TASK_1ms
+                  0x0016a8                  _TASK_500ms
+                  0x001684                  _TASK_5ms
+                  0x00166c                  _TASK_Inits
                   0x0013fa                  _TASK_vSchedule
                   0x00127c                  _TIM2_u16GetCount
                   0x0011e8                  _TIM2_vInit
@@ -434,7 +438,7 @@ External Symbols in Program Memory (by name):
                   0x000312                  __T4Interrupt
                   0x00031a                  __T5Interrupt
                   0x00032a                  ___addsf3
-                  0x0016d8                  ___delay32
+                  0x001722                  ___delay32
                   0x0003e4                  ___divsf3
                   0x000468                  ___eqsf2
                   0x00046c                  ___fixunssfsi
@@ -455,13 +459,14 @@ External Symbols in Program Memory (by name):
                   0x00051c                  __funpack2
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x00171a                  _main
+                  0x001764                  _main
                   0x001490                  _test_pin_setup
                   0x000a26                  _test_vReceiver
                   0x0014c0                  _test_vToggle_CE
                   0x0014a2                  _test_vToggle_CSN
                   0x0014de                  _test_vToggle_IRQ
                   0x000a5a                  _test_vTransmitter
+                  0x0016b4                  _vDoHandleLightSig
 
 Memory Configuration
 
@@ -502,6 +507,7 @@ LOAD build/default/production/mcal_spi.o
 LOAD build/default/production/mcal_timers.o
 LOAD build/default/production/sys_schedule.o
 LOAD build/default/production/sys_tasks.o
+LOAD build/default/production/light_sig.o
                     0x0001                  __MPLAB_BUILD = 0x1
 LOAD p33FJ128MC804
 LOAD c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libfx-elf.a
@@ -646,25 +652,26 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x8186
+.debug_info       0x000000       0x84e6
  *(.debug_info)
- .debug_info      0x000000        0x2ca build/default/production/asw_com.o
- .debug_info      0x0002ca        0x915 build/default/production/hal_nRF.o
- .debug_info      0x000bdf         0xab build/default/production/main.o
- .debug_info      0x000c8a        0x79d build/default/production/mcal_adc.o
- .debug_info      0x001427        0x9cd build/default/production/mcal_encoder.o
- .debug_info      0x001df4        0x465 build/default/production/mcal_gpio.o
- .debug_info      0x002259        0x163 build/default/production/mcal_init.o
- .debug_info      0x0023bc       0x1266 build/default/production/mcal_interrupts.o
- .debug_info      0x003622        0x270 build/default/production/mcal_osc.o
- .debug_info      0x003892        0xcc6 build/default/production/mcal_pwm.o
- .debug_info      0x004558       0x11a2 build/default/production/mcal_spi.o
- .debug_info      0x0056fa       0x1a70 build/default/production/mcal_timers.o
- .debug_info      0x00716a        0xdf9 build/default/production/sys_schedule.o
- .debug_info      0x007f63        0x223 build/default/production/sys_tasks.o
+ .debug_info      0x000000        0x2de build/default/production/asw_com.o
+ .debug_info      0x0002de        0x929 build/default/production/hal_nRF.o
+ .debug_info      0x000c07        0x16f build/default/production/main.o
+ .debug_info      0x000d76        0x7b1 build/default/production/mcal_adc.o
+ .debug_info      0x001527        0x9e1 build/default/production/mcal_encoder.o
+ .debug_info      0x001f08        0x479 build/default/production/mcal_gpio.o
+ .debug_info      0x002381        0x177 build/default/production/mcal_init.o
+ .debug_info      0x0024f8       0x127a build/default/production/mcal_interrupts.o
+ .debug_info      0x003772        0x284 build/default/production/mcal_osc.o
+ .debug_info      0x0039f6        0xcda build/default/production/mcal_pwm.o
+ .debug_info      0x0046d0       0x11b6 build/default/production/mcal_spi.o
+ .debug_info      0x005886       0x1a84 build/default/production/mcal_timers.o
+ .debug_info      0x00730a        0xe0d build/default/production/sys_schedule.o
+ .debug_info      0x008117        0x237 build/default/production/sys_tasks.o
+ .debug_info      0x00834e        0x198 build/default/production/light_sig.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0xcf0
+.debug_abbrev     0x000000        0xd44
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0xc7 build/default/production/asw_com.o
  .debug_abbrev    0x0000c7        0x1a0 build/default/production/hal_nRF.o
@@ -680,8 +687,9 @@ __FUID3
  .debug_abbrev    0x0009f7        0x1d2 build/default/production/mcal_timers.o
  .debug_abbrev    0x000bc9         0xc4 build/default/production/sys_schedule.o
  .debug_abbrev    0x000c8d         0x63 build/default/production/sys_tasks.o
+ .debug_abbrev    0x000cf0         0x54 build/default/production/light_sig.o
 
-.debug_line       0x000000        0xe82
+.debug_line       0x000000        0xec5
  *(.debug_line)
  .debug_line      0x000000         0x5a build/default/production/asw_com.o
  .debug_line      0x00005a        0x150 build/default/production/hal_nRF.o
@@ -696,9 +704,10 @@ __FUID3
  .debug_line      0x000969        0x17f build/default/production/mcal_spi.o
  .debug_line      0x000ae8        0x1f4 build/default/production/mcal_timers.o
  .debug_line      0x000cdc        0x14a build/default/production/sys_schedule.o
- .debug_line      0x000e26         0x5c build/default/production/sys_tasks.o
+ .debug_line      0x000e26         0x5e build/default/production/sys_tasks.o
+ .debug_line      0x000e84         0x41 build/default/production/light_sig.o
 
-.debug_frame      0x000000        0xe9a
+.debug_frame      0x000000        0xeca
  *(.debug_frame)
  .debug_frame     0x000000         0xa0 build/default/production/asw_com.o
  .debug_frame     0x0000a0        0x39a build/default/production/hal_nRF.o
@@ -714,6 +723,7 @@ __FUID3
  .debug_frame     0x00092a        0x3f8 build/default/production/mcal_timers.o
  .debug_frame     0x000d22         0xa0 build/default/production/sys_schedule.o
  .debug_frame     0x000dc2         0xd8 build/default/production/sys_tasks.o
+ .debug_frame     0x000e9a         0x30 build/default/production/light_sig.o
 
 .debug_str        0x000000        0x42b
  *(.debug_str)
@@ -736,7 +746,7 @@ __FUID3
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0xb1b
+                  0x000000        0xb49
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x7a build/default/production/asw_com.o
@@ -766,11 +776,13 @@ __FUID3
                   0x0009d6         0xc8 build/default/production/sys_schedule.o
  .debug_pubnames
                   0x000a9e         0x7d build/default/production/sys_tasks.o
+ .debug_pubnames
+                  0x000b1b         0x2e build/default/production/light_sig.o
 
 .debug_ranges
  *(.debug_ranges)
 
-.debug_aranges    0x000000        0x150
+.debug_aranges    0x000000        0x168
  *(.debug_aranges)
  .debug_aranges
                   0x000000         0x18 build/default/production/asw_com.o
@@ -800,6 +812,8 @@ __FUID3
                   0x000120         0x18 build/default/production/sys_schedule.o
  .debug_aranges
                   0x000138         0x18 build/default/production/sys_tasks.o
+ .debug_aranges
+                  0x000150         0x18 build/default/production/light_sig.o
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -1917,96 +1931,102 @@ LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
-                  0x000150        0x9df
+                  0x000168        0xa03
  .debug_pubtypes
-                  0x000150         0x2e build/default/production/asw_com.o
+                  0x000168         0x2e build/default/production/asw_com.o
  .debug_pubtypes
-                  0x00017e         0x3e build/default/production/hal_nRF.o
+                  0x000196         0x3e build/default/production/hal_nRF.o
  .debug_pubtypes
-                  0x0001bc         0xbc build/default/production/mcal_adc.o
+                  0x0001d4         0x12 build/default/production/main.o
  .debug_pubtypes
-                  0x000278         0xce build/default/production/mcal_encoder.o
+                  0x0001e6         0xbc build/default/production/mcal_adc.o
  .debug_pubtypes
-                  0x000346         0x45 build/default/production/mcal_gpio.o
+                  0x0002a2         0xce build/default/production/mcal_encoder.o
  .debug_pubtypes
-                  0x00038b         0x12 build/default/production/mcal_init.o
+                  0x000370         0x45 build/default/production/mcal_gpio.o
  .debug_pubtypes
-                  0x00039d        0x18e build/default/production/mcal_interrupts.o
+                  0x0003b5         0x12 build/default/production/mcal_init.o
  .debug_pubtypes
-                  0x00052b         0x40 build/default/production/mcal_osc.o
+                  0x0003c7        0x18e build/default/production/mcal_interrupts.o
  .debug_pubtypes
-                  0x00056b        0x129 build/default/production/mcal_pwm.o
+                  0x000555         0x40 build/default/production/mcal_osc.o
  .debug_pubtypes
-                  0x000694        0x17f build/default/production/mcal_spi.o
+                  0x000595        0x129 build/default/production/mcal_pwm.o
  .debug_pubtypes
-                  0x000813        0x1b3 build/default/production/mcal_timers.o
+                  0x0006be        0x17f build/default/production/mcal_spi.o
  .debug_pubtypes
-                  0x0009c6        0x14d build/default/production/sys_schedule.o
+                  0x00083d        0x1b3 build/default/production/mcal_timers.o
  .debug_pubtypes
-                  0x000b13         0x1c build/default/production/sys_tasks.o
+                  0x0009f0        0x14d build/default/production/sys_schedule.o
+ .debug_pubtypes
+                  0x000b3d         0x1c build/default/production/sys_tasks.o
+ .debug_pubtypes
+                  0x000b59         0x12 build/default/production/light_sig.o
 
 __c30_signature
-                  0x000b2f         0xae
+                  0x000b6b         0xb4
  __c30_signature
-                  0x000b2f          0x6 build/default/production/asw_com.o
+                  0x000b6b          0x6 build/default/production/asw_com.o
  __c30_signature
-                  0x000b35          0x6 build/default/production/hal_nRF.o
+                  0x000b71          0x6 build/default/production/hal_nRF.o
  __c30_signature
-                  0x000b3b          0x6 build/default/production/main.o
+                  0x000b77          0x6 build/default/production/main.o
  __c30_signature
-                  0x000b41          0x6 build/default/production/mcal_adc.o
+                  0x000b7d          0x6 build/default/production/mcal_adc.o
  __c30_signature
-                  0x000b47          0x6 build/default/production/mcal_encoder.o
+                  0x000b83          0x6 build/default/production/mcal_encoder.o
  __c30_signature
-                  0x000b4d          0x6 build/default/production/mcal_gpio.o
+                  0x000b89          0x6 build/default/production/mcal_gpio.o
  __c30_signature
-                  0x000b53          0x6 build/default/production/mcal_init.o
+                  0x000b8f          0x6 build/default/production/mcal_init.o
  __c30_signature
-                  0x000b59          0x6 build/default/production/mcal_interrupts.o
+                  0x000b95          0x6 build/default/production/mcal_interrupts.o
  __c30_signature
-                  0x000b5f          0x6 build/default/production/mcal_osc.o
+                  0x000b9b          0x6 build/default/production/mcal_osc.o
  __c30_signature
-                  0x000b65          0x6 build/default/production/mcal_pwm.o
+                  0x000ba1          0x6 build/default/production/mcal_pwm.o
  __c30_signature
-                  0x000b6b          0x6 build/default/production/mcal_spi.o
+                  0x000ba7          0x6 build/default/production/mcal_spi.o
  __c30_signature
-                  0x000b71          0x6 build/default/production/mcal_timers.o
+                  0x000bad          0x6 build/default/production/mcal_timers.o
  __c30_signature
-                  0x000b77          0x6 build/default/production/sys_schedule.o
+                  0x000bb3          0x6 build/default/production/sys_schedule.o
  __c30_signature
-                  0x000b7d          0x6 build/default/production/sys_tasks.o
+                  0x000bb9          0x6 build/default/production/sys_tasks.o
  __c30_signature
-                  0x000b83          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
+                  0x000bbf          0x6 build/default/production/light_sig.o
  __c30_signature
-                  0x000b89          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
+                  0x000bc5          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x000b8f          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
+                  0x000bcb          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
  __c30_signature
-                  0x000b95          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(addsf3.eo)
+                  0x000bd1          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
  __c30_signature
-                  0x000b9b          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(divsf3.eo)
+                  0x000bd7          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(addsf3.eo)
  __c30_signature
-                  0x000ba1          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(feqltle.eo)
+                  0x000bdd          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(divsf3.eo)
  __c30_signature
-                  0x000ba7          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(fixunssfsi.eo)
+                  0x000be3          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(feqltle.eo)
  __c30_signature
-                  0x000bad          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(floatunsisf.eo)
+                  0x000be9          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(fixunssfsi.eo)
  __c30_signature
-                  0x000bb3          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(fpack.eo)
+                  0x000bef          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(floatunsisf.eo)
  __c30_signature
-                  0x000bb9          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(funpack.eo)
+                  0x000bf5          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(fpack.eo)
  __c30_signature
-                  0x000bbf          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(funpack2.eo)
+                  0x000bfb          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(funpack.eo)
  __c30_signature
-                  0x000bc5          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(futil.eo)
+                  0x000c01          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(funpack2.eo)
  __c30_signature
-                  0x000bcb          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(mulsf3.eo)
+                  0x000c07          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(futil.eo)
  __c30_signature
-                  0x000bd1          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(fcompare.eo)
+                  0x000c0d          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(mulsf3.eo)
  __c30_signature
-                  0x000bd7          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(floatundisf.eo)
+                  0x000c13          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(fcompare.eo)
+ __c30_signature
+                  0x000c19          0x6 c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\libm-elf.a(floatundisf.eo)
 
-.nbss               0x0800         0x1a
+.nbss               0x0800         0x1c
  .nbss              0x0800          0x8 build/default/production/hal_nRF.o
                     0x0800                  _u8RxBuff_Index
                     0x0802                  _eRF_OpMode
@@ -2024,10 +2044,12 @@ __c30_signature
                     0x0816                  _u8FlagTask_1000ms
  .nbss              0x0818          0x2 build/default/production/sys_tasks.o
                     0x0818                  _a
+ .nbss              0x081a          0x2 build/default/production/light_sig.o
+                    0x081a                  _i
 
-.bss                0x081a         0x20
- .bss               0x081a         0x20 build/default/production/hal_nRF.o
-                    0x081a                  _au8RxBuff
+.bss                0x081c         0x20
+ .bss               0x081c         0x20 build/default/production/hal_nRF.o
+                    0x081c                  _au8RxBuff
 
 .config_JTAGEN    0xf8000e          0x2
  .config_JTAGEN
@@ -2074,7 +2096,7 @@ __c30_signature
 .const              0x8648          0x6 load address 0x000648  
  .const             0x8648          0x6 build/default/production/hal_nRF.o
 
-.text             0x00064e       0x106a
+.text             0x00064e       0x10ae
  .text            0x00064e        0x416 build/default/production/hal_nRF.o
                   0x00064e                  _RF_vCloseAllPipes
                   0x000664                  _RF_vOpenPipeZero
@@ -2180,36 +2202,38 @@ __c30_signature
  .text            0x001582         0x58 build/default/production/mcal_adc.o
                   0x001582                  _ADC_vInit
                   0x00159c                  _ADC_u16Read
- .text            0x0015da         0x4c build/default/production/sys_tasks.o
-                  0x0015da                  _TASK_Inits
-                  0x0015ec                  _TASK_1ms
-                  0x0015f2                  _TASK_5ms
-                  0x0015f8                  _TASK_10ms
-                  0x0015fe                  _TASK_100ms
-                  0x001604                  _TASK_500ms
-                  0x00160a                  _TASK_1000ms
- .text            0x001626         0x4a build/default/production/asw_com.o
-                  0x001626                  _COM_vInit
-                  0x00162c                  _COM_vSendMessage
-                  0x001638                  _COM_vStartListening
-                  0x001640                  _COM_vProcessMessage
-                  0x001648                  _COM_vProcessFIFO
- .text            0x001670         0x48 build/default/production/mcal_encoder.o
-                  0x001670                  _QEI_vInit
-                  0x0016a6                  _QEI_u16getCount
-                  0x0016ae                  _QEI_vResetCount
+ .text            0x0015da         0x4a build/default/production/asw_com.o
+                  0x0015da                  _COM_vInit
+                  0x0015e0                  _COM_vSendMessage
+                  0x0015ec                  _COM_vStartListening
+                  0x0015f4                  _COM_vProcessMessage
+                  0x0015fc                  _COM_vProcessFIFO
+ .text            0x001624         0x48 build/default/production/mcal_encoder.o
+                  0x001624                  _QEI_vInit
+                  0x00165a                  _QEI_u16getCount
+                  0x001662                  _QEI_vResetCount
+ .text            0x00166c         0x48 build/default/production/sys_tasks.o
+                  0x00166c                  _TASK_Inits
+                  0x00167e                  _TASK_1ms
+                  0x001684                  _TASK_5ms
+                  0x00168a                  _TASK_10ms
+                  0x001690                  _TASK_100ms
+                  0x0016a8                  _TASK_500ms
+                  0x0016ae                  _TASK_1000ms
+ .text            0x0016b4         0x48 build/default/production/light_sig.o
+                  0x0016b4                  _vDoHandleLightSig
 
-.dinit            0x0016b8         0x20
- .dinit           0x0016b8         0x20 data_init
+.dinit            0x0016fc         0x26
+ .dinit           0x0016fc         0x26 data_init
 
-.init.delay32     0x0016d8         0x1c
- .init.delay32    0x0016d8         0x1c c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
-                  0x0016d8                  ___delay32
+.init.delay32     0x001722         0x1c
+ .init.delay32    0x001722         0x1c c:/program files (x86)/microchip/xc16/v1.41/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
+                  0x001722                  ___delay32
 
-.text             0x0016f4         0x2e
- .text            0x0016f4         0x16 build/default/production/mcal_init.o
-                  0x0016f4                  _MCAL_vInit
- .text            0x00170a         0x10 build/default/production/mcal_osc.o
-                  0x00170a                  _OSC_vInit
- .text            0x00171a          0x8 build/default/production/main.o
-                  0x00171a                  _main
+.text             0x00173e         0x2e
+ .text            0x00173e         0x16 build/default/production/mcal_init.o
+                  0x00173e                  _MCAL_vInit
+ .text            0x001754         0x10 build/default/production/mcal_osc.o
+                  0x001754                  _OSC_vInit
+ .text            0x001764          0x8 build/default/production/main.o
+                  0x001764                  _main

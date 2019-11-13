@@ -7,7 +7,7 @@
 
 #ifndef SYS_TASKS_H
 #define	SYS_TASKS_H
-
+#include "light_sig.h"
 
 void TASK_Inits(void);
 
@@ -19,4 +19,5 @@ void TASK_100ms(void);
 void TASK_500ms(void);
 void TASK_1000ms(void);
 
+void vDoHandleLightSig();
 #endif	/* SYS_TASKS_H */
