@@ -5,7 +5,7 @@
 *  Function name    : GPIO_u8SetPortPin
 *  Description       1.Set pot pins as digital or analog,input or output                   
 *  List of arguments: u8Port=port microcontroller,u8Pin=pin port microcontroller,
-*                     bAD= set pin analogic or digital,bDir=select direction
+*                     bAD= set pin analogic or digital,bDir=select Pection
 *                     (input or output)
 *  Return value     :  -
 ********************************************************************************/
