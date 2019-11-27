@@ -12,8 +12,11 @@
 #include "asw_com.h"
 #include "rte.h"
 #include "asm_move.h"
-T_U16 a = 0;
 
+
+T_U16 a = 0;
+int angle=60;//intre 60 si 130
+int contor=0;
 void TASK_Inits()
 {
     MCAL_vInit();
@@ -23,7 +26,7 @@ void TASK_Inits()
 
 void TASK_1ms()
 {
-    
+  //  ASM_ServoSetAngle(angle);
 }
 
 void TASK_5ms()
@@ -59,4 +62,17 @@ void TASK_1000ms()
    /// a = !a;
    // GPIO_u8WritePortPin(PORT_A, 10, a);
     ASM_SetDcMotorDirSpeed();
+   
+
+     if(contor<=5)
+    {
+        ASM_ServoSetAngle(angle);
+        angle=angle+10;
+        contor++;
+    }
+    if(contor>5)
+    {
+        contor=0;
+        angle=60;
+    }
 }

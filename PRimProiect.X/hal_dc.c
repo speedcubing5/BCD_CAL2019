@@ -8,7 +8,7 @@
 
 #include "xc.h"
 #include "mcal_pwm.h"
-T_F16 DutyCycle=30;
+T_F16 DutyCycle=50;
 
 void HAL_DcMotorInit()
 {

@@ -19,3 +19,8 @@ void ASM_SetDcMotorDirSpeed()
     RTE_SetDcMotorDir(0);
     RTE_SetDcMotorDuty();
 }
+
+void ASM_ServoSetAngle(angle)
+{
+    RTE_ServoSetAngle(angle);
+}

@@ -22,3 +22,4 @@ extern "C" {
 #endif	/* ASM_MOVE_H */
 extern void ASM_DcMotorInit();
 extern void ASM_SetDcMotorDirSpeed();
+extern void ASM_ServoSetAngle(int angle);
