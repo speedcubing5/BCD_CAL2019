@@ -9,6 +9,7 @@
 #define	RTE_H
 #include "hal_dc.h"
 #include "hal_servo.h"
+#include "hal_lf.h"
 #ifdef	__cplusplus
 extern "C" {
 #endif
@@ -27,3 +28,7 @@ extern "C" {
 #define RTE_SetDcMotorDuty HAL_SetDcMotorDuty
 
 #define RTE_ServoSetAngle HAL_ServoSetAngle
+
+#define RTE_SetLineFollower HAL_SetLineFollower
+#define RTE_GetLineFollower HAL_GetLineFollower
+#define RTE_WriteLineFollower HAL_WriteLineFollower

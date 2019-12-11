@@ -27,11 +27,12 @@ void TASK_Inits()
 void TASK_1ms()
 {
   //  ASM_ServoSetAngle(angle);
+    ASM_SetDcMotorDirSpeed();
 }
 
 void TASK_5ms()
 {
-
+    ASM_SetDcMotorDirSpeed();
 }
 
 void TASK_10ms()
@@ -54,13 +55,18 @@ void TASK_100ms()
 
 void TASK_500ms()
 { 
-
+    
 }
 
 void TASK_1000ms()
 {
    /// a = !a;
    // GPIO_u8WritePortPin(PORT_A, 10, a);
+    
+    
+    
+    // pentru servo
+    /*
     ASM_SetDcMotorDirSpeed();
    
 
@@ -74,5 +80,5 @@ void TASK_1000ms()
     {
         contor=0;
         angle=60;
-    }
+    }*/
 }

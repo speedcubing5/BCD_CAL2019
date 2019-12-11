@@ -23,3 +23,7 @@ extern "C" {
 extern void ASM_DcMotorInit();
 extern void ASM_SetDcMotorDirSpeed();
 extern void ASM_ServoSetAngle(int angle);
+
+extern void ASM_SetLineFollower(BOOL bDir);
+extern T_U16 ASM_GetLineFollower();
+extern void ASM_WriteLineFollower();

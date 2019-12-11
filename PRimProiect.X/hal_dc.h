@@ -23,4 +23,4 @@ extern "C" {
 
 extern void HAL_DcMotorInit();
 extern void HAL_SetDcMotorDir(BOOL Dir);
-extern void HAL_SetDcMotorDuty();
+extern void HAL_SetDcMotorDuty(T_F16 Duty);
