@@ -27,3 +27,5 @@ extern void ASM_ServoSetAngle(int angle);
 extern void ASM_SetLineFollower(BOOL bDir);
 extern T_U16 ASM_GetLineFollower();
 extern void ASM_WriteLineFollower();
+
+extern T_U16 ASM_Acumulator();

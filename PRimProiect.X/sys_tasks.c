@@ -17,11 +17,12 @@
 T_U16 a = 0;
 int angle=60;//intre 60 si 130
 int contor=0;
+
+
 void TASK_Inits()
 {
     MCAL_vInit();
-  //  GPIO_u8SetPortPin(PORT_A, 10, DIGITAL ,OUTPUT);
-   ASM_DcMotorInit();
+    ASM_DcMotorInit();
 }
 
 void TASK_1ms()
@@ -32,7 +33,7 @@ void TASK_1ms()
 
 void TASK_5ms()
 {
-    ASM_SetDcMotorDirSpeed();
+    //ASM_SetDcMotorDirSpeed();
 }
 
 void TASK_10ms()
@@ -42,7 +43,7 @@ void TASK_10ms()
 
 void TASK_100ms()
 { 
-    if(a==1)
+   /* if(a==1)
     {
         vDoHandleLightSig();
     a=0;
@@ -50,16 +51,35 @@ void TASK_100ms()
     else
     {
     a++;
+    }*/
+    
+    T_U16 ac=ASM_Acumulator();
+    if(ac>6&&ac<8.4)
+    {
+        if(ac>7&&ac<8.4)
+        {
+            
+        }
+        if(ac>6.5&&ac<7)
+        {
+            
+        }
+        if(ac>6&&ac<6.5)
+        {
+            
+        }
     }
 }
 
 void TASK_500ms()
 { 
-    
+   
 }
 
 void TASK_1000ms()
 {
+    
+    
    /// a = !a;
    // GPIO_u8WritePortPin(PORT_A, 10, a);
     

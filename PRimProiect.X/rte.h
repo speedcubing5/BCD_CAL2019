@@ -10,6 +10,7 @@
 #include "hal_dc.h"
 #include "hal_servo.h"
 #include "hal_lf.h"
+#include "hal_adc.h"
 #ifdef	__cplusplus
 extern "C" {
 #endif
@@ -32,3 +33,6 @@ extern "C" {
 #define RTE_SetLineFollower HAL_SetLineFollower
 #define RTE_GetLineFollower HAL_GetLineFollower
 #define RTE_WriteLineFollower HAL_WriteLineFollower
+
+#define RTE_ADCinit HAL_ADCinit
+#define RTE_ADCread HAL_ADCread

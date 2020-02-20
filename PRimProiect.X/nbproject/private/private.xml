@@ -3,18 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/27nov/BCD_CAL2019/PRimProiect.X/asm_move.c</file>
-            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/27nov/BCD_CAL2019/PRimProiect.X/hal_servo.c</file>
-            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/27nov/BCD_CAL2019/PRimProiect.X/mcal_gpio.h</file>
-            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/27nov/BCD_CAL2019/PRimProiect.X/hal_dc.h</file>
-            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/27nov/BCD_CAL2019/PRimProiect.X/asm_move.h</file>
-            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/27nov/BCD_CAL2019/PRimProiect.X/sys_tasks.c</file>
-            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/27nov/BCD_CAL2019/PRimProiect.X/hal_lf.c</file>
-            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/27nov/BCD_CAL2019/PRimProiect.X/rte.h</file>
-            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/27nov/BCD_CAL2019/PRimProiect.X/hal_lf.h</file>
-            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/27nov/BCD_CAL2019/PRimProiect.X/mcal_gpio.c</file>
-            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/27nov/BCD_CAL2019/PRimProiect.X/hal_dc.c</file>
-            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/27nov/BCD_CAL2019/PRimProiect.X/hal_servo.h</file>
+            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/18dec/BCD_CAL2019/PRimProiect.X/hal_dc.h</file>
+            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/18dec/BCD_CAL2019/PRimProiect.X/sys_tasks.c</file>
+            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/18dec/BCD_CAL2019/PRimProiect.X/hal_adc.c</file>
+            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/18dec/BCD_CAL2019/PRimProiect.X/asm_move.c</file>
+            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/18dec/BCD_CAL2019/PRimProiect.X/light_sig.c</file>
+            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/18dec/BCD_CAL2019/PRimProiect.X/rte.h</file>
+            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/18dec/BCD_CAL2019/PRimProiect.X/hal_dc.c</file>
+            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/18dec/BCD_CAL2019/PRimProiect.X/asm_move.h</file>
+            <file>file:/C:/Users/cubin/OneDrive/Desktop/cal/18dec/BCD_CAL2019/PRimProiect.X/hal_adc.h</file>
         </group>
     </open-files>
 </project-private>
